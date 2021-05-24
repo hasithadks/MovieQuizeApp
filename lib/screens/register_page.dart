@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_quize_app/constants.dart';
-import 'package:movie_quize_app/screens/register_page.dart';
 import 'package:movie_quize_app/widgets/custom_btn.dart';
 import 'package:movie_quize_app/widgets/custom_input.dart';
 
-class LoginPage extends StatefulWidget {
+import '../constants.dart';
+
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
 
   Future<void> _alertDialogBuilder(String errorText) async {
     return showDialog(
@@ -34,11 +34,11 @@ class _LoginPageState extends State<LoginPage> {
         });
   }
 
-  Future<String> _loginAccount() async {
+  Future<String> _createAccount() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _loginEmail,
-          password: _loginPassword
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _registerEmail,
+          password: _registerPassword
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -56,20 +56,23 @@ class _LoginPageState extends State<LoginPage> {
 
     //Set the form loading state
     setState(() {
-      _loginFormLoading = true;
+      _registerFormLoading = true;
     });
 
     //run the create Account Method
-    String _loginFeedBack = await _loginAccount();
+    String _createAccountFeedBack = await _createAccount();
 
     // If the string is not null, we got error while create account.
-    if( _loginFeedBack != null){
-      _alertDialogBuilder(_loginFeedBack);
+    if( _createAccountFeedBack != null){
+      _alertDialogBuilder(_createAccountFeedBack);
 
       //Set the form to regular state.
       setState(() {
-        _loginFormLoading = false;
+        _registerFormLoading = false;
       });
+    } else {
+      // The String was null, user logged in head back to the login page.
+      Navigator.pop(context);
     }
 
 
@@ -77,11 +80,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   //Default form loading state
-  bool _loginFormLoading = false;
+  bool _registerFormLoading = false;
 
   // Form input Field values
-  String _loginEmail = "";
-  String _loginPassword = "";
+  String _registerEmail = "";
+  String _registerPassword = "";
 
   //Focus Node for input Fields
   FocusNode _passwordFocusNode;
@@ -112,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(
                     top: 24.0,
                   ),
-                  child:Text("Welcome user,\nLogin to your Account",
+                  child:Text("Create A New Account",
                     textAlign: TextAlign.center,
                     style: Constants.boldHeading,
                   ) ,
@@ -123,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     CustomInput(
                       hintText: "Enter Email",
                       onChanged: (value) {
-                        _loginEmail = value;
+                        _registerEmail = value;
                       },
                       onSubmitted: (value){
                         _passwordFocusNode.requestFocus();
@@ -132,9 +135,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     CustomInput(
                       hintText: "Enter Password",
-                      onChanged: (value) {
-                        _loginPassword = value;
-                      },
+                        onChanged: (value) {
+                          _registerPassword = value;
+                        },
                       focusNode: _passwordFocusNode,
                       isPasswordField: true,
                       onSubmitted: (value){
@@ -142,36 +145,30 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     CustomBtn(
-                      text: "Login",
+                      text: "Create new Account",
                       onPressed: (){
                         _submitForm();
                       },
-                      isLoadig: _loginFormLoading,
+                      isLoadig: _registerFormLoading,
                     ),
                   ],
                 ),
-              Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 16.0,
-                  ),
-                 child: CustomBtn(
-                    text: "Create New Account",
-                    onPressed: (){
-                     Navigator.push(
-                         context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage()
-                          ),
+                Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 16.0,
+                    ),
+                    child: CustomBtn(
+                      text: "Back To Login",
+                      onPressed: (){
+                       Navigator.pop(context);
+                      },
+                      outlineBtn: true,
+                    )
+                )
+                ,
 
-                     );
-                    },
-                    outlineBtn: true,
-                  )
-              )
-              ,
-
-          ],
-        ))
+              ],
+            ))
         ,
       )
       ,
