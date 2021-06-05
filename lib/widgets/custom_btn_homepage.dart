@@ -20,7 +20,7 @@ class CustomHomeButton extends StatelessWidget {
       child: Container(
           height: 85.0,
           decoration: BoxDecoration(
-            color: _outlineBtn ? Colors.transparent : Colors.black,
+            color: _outlineBtn ? Colors.transparent : Colors.cyanAccent,
             border: Border.all(
               color: Colors.black,
               width: 2.0,
@@ -29,7 +29,7 @@ class CustomHomeButton extends StatelessWidget {
           ),
           margin: EdgeInsets.symmetric(
             horizontal: 24.0,
-            vertical: 8.0,
+            vertical: 15.0,
           ),
           child: Stack(
             children: [

@@ -18,60 +18,123 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: Center(
-          child: Container(
-            padding: EdgeInsets.only(
-              top: 50.0,
-            ),
-            width: double.infinity,
-            child: Column(
-              children: [
-                CustomHomeButton(
-                  text: "Login",
-                  onPressed: (){
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                  },
-
+            children:[
+              Container(
+                padding: EdgeInsets.only(
+                  top: 24.0,
                 ),
-                CustomHomeButton(
-                  text: "Login",
-                  onPressed: (){
+                child:Text("Welcome to Movie Quiz app",
+                  textAlign: TextAlign.center,
+                  style: Constants.boldHeading,
+                ) ,
+              ),
 
-                  },
+              Column(
 
-                ),
-                CustomHomeButton(
-                  text: "Login",
-                  onPressed: (){
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                      vertical: 15.0,
 
-                  },
+                    ),
 
-                ),
-                CustomHomeButton(
-                  text: "Login",
-                  onPressed: (){
+                    child: MaterialButton(
+                      minWidth: 300.0,
+                      height: 55,
+                      shape: RoundedRectangleBorder(
+                        borderRadius:BorderRadius.circular(8.0),
+                        side: BorderSide(color: Colors.purpleAccent,
+                        width: 4.0)
+                      ),
 
-                  },
+                      color: Colors.black,
+                      onPressed: () async{
 
-                ),
-                CustomHomeButton(
-                  text: "Login",
-                  onPressed: (){
+                      },
 
-                  },
+                      child: new Text('Movie Quiz',
+                          style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                    ),
 
-                ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                      vertical: 15.0,
+                    ),
+                    child: MaterialButton(
+                      minWidth: 300.0,
+                      height: 55,
+                      color: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius:BorderRadius.circular(8.0),
+                          side: BorderSide(color: Colors.pink,
+                              width: 4.0)
+                      ),
+                      onPressed: () async{
 
-              ],
+                      },
+                      child: new Text('Leader Board',
+                          style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                    ),
 
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                      vertical: 15.0,
+                    ),
+                    child: MaterialButton(
+                      minWidth: 300.0,
+                      height: 55,
+                      color: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius:BorderRadius.circular(8.0),
+                          side: BorderSide(color: Colors.blueAccent,
+                              width: 4.0)
+                      ),
+                      onPressed: () async{
 
-            ),
+                      },
+                      child: new Text('My Score',
+                          style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                    ),
 
+                  ),
 
+                ],
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: MaterialButton(
+                    minWidth: 300.0,
+                    height: 55,
+                    color: Colors.black,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:BorderRadius.circular(8.0),
+                        side: BorderSide(color: Colors.white,
+                            width: 4.0)
+                    ),
+                    onPressed: () async{
+                      await FirebaseAuth.instance.signOut();
+                    },
+                    child: new Text('Log Out',
+                        style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                  ),
+              )
+              ,
 
-          ),
+            ],
+          ))
 
         ),
-      ),
+
     );
   }
 }
