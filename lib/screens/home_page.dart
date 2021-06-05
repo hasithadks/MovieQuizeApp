@@ -13,9 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-       title: Text("Movie Quiz App"),
-      ),
+
       body: SafeArea(
         child: Center(
           child: Column(
