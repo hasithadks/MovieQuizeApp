@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(
                   top: 24.0,
                 ),
-                child:Text("Welcome to Movie Quiz app",
+                child:Text("Welcome to Movie Quiz App",
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ) ,
@@ -44,20 +44,50 @@ class _HomePageState extends State<HomePage> {
 
                     child: MaterialButton(
                       minWidth: 300.0,
-                      height: 55,
+                      height: 65,
                       shape: RoundedRectangleBorder(
                         borderRadius:BorderRadius.circular(8.0),
                         side: BorderSide(color: Colors.purpleAccent,
-                        width: 4.0)
+                        width: 4.0),
+
                       ),
+
 
                       color: Colors.black,
                       onPressed: () async{
 
                       },
-
-                      child: new Text('Movie Quiz',
-                          style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Column(
+                             children: <Widget>[
+                               Padding(
+                                 padding: const EdgeInsets.symmetric(
+                                  horizontal: 20.0,
+                                  vertical: 10.0
+                                  ),
+                                 child: Icon(Icons.movie_creation_rounded,
+                                 color: Colors.white,
+                                 size: 35.0,),
+                               )
+                             ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 40.0,
+                                  vertical: 10.0
+                                ),
+                                child: Text("Movie Quiz",
+                                style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                              ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
 
                   ),
@@ -68,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: MaterialButton(
                       minWidth: 300.0,
-                      height: 55,
+                      height: 65,
                       color: Colors.black,
                       shape: RoundedRectangleBorder(
                           borderRadius:BorderRadius.circular(8.0),
@@ -78,8 +108,37 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () async{
 
                       },
-                      child: new Text('Leader Board',
-                          style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0,
+                                      vertical: 10.0
+                                  ),
+                                  child: Icon(Icons.leaderboard_rounded,
+                                    color: Colors.white,
+                                    size: 35.0,),
+                                )
+                              ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 30.0,
+                                      vertical: 10.0
+                                  ),
+                                  child: Text("Leader Board",
+                                      style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
 
                   ),
@@ -90,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: MaterialButton(
                       minWidth: 300.0,
-                      height: 55,
+                      height: 65,
                       color: Colors.black,
                       shape: RoundedRectangleBorder(
                           borderRadius:BorderRadius.circular(8.0),
@@ -100,21 +159,51 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () async{
 
                       },
-                      child: new Text('My Score',
-                          style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0,
+                                      vertical: 10.0
+                                  ),
+                                  child: Icon(Icons.score_rounded,
+                                    color: Colors.white,
+                                    size: 35.0,),
+                                )
+                              ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 40.0,
+                                      vertical: 10.0
+                                  ),
+                                  child: Text("My Score",
+                                      style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
 
                   ),
 
                 ],
               ),
-              Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 16.0,
-                  ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 24.0,
+                  vertical: 35.0,
+                ),
                   child: MaterialButton(
                     minWidth: 300.0,
-                    height: 55,
+                    height: 65,
                     color: Colors.black,
                     shape: RoundedRectangleBorder(
                         borderRadius:BorderRadius.circular(8.0),
@@ -124,8 +213,37 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () async{
                       await FirebaseAuth.instance.signOut();
                     },
-                    child: new Text('Log Out',
-                        style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Column(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0,
+                                    vertical: 10.0
+                                ),
+                                child: Icon(Icons.logout,
+                                  color: Colors.white,
+                                  size: 35.0,),
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 40.0,
+                                    vertical: 10.0
+                                ),
+                                child: Text("LOG OUT",
+                                    style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
               )
               ,
