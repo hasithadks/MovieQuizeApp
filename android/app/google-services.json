@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "686094272677",
-    "project_id": "moviequizeapp",
-    "storage_bucket": "moviequizeapp.appspot.com"
+    "project_number": "291519255574",
+    "project_id": "moviequizapp-a2b2d",
+    "storage_bucket": "moviequizapp-a2b2d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:686094272677:android:607b6febdbd76036c5254c",
+        "mobilesdk_app_id": "1:291519255574:android:94c6325425ad7262be1137",
         "android_client_info": {
           "package_name": "com.example.movie_quize_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "686094272677-0sj9fo7rc3o8sd1ut2etfndgo7usaf71.apps.googleusercontent.com",
+          "client_id": "291519255574-r0fjpj4bsvfmfmfaeci43qrp5ind9olc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCgyCVXvw3FYHUM320bTMNfLDOf79BT5p0"
+          "current_key": "AIzaSyCcrUQcB7Y_f1hYgq6NOgPDpvIm_ifKn2c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "686094272677-0sj9fo7rc3o8sd1ut2etfndgo7usaf71.apps.googleusercontent.com",
+              "client_id": "291519255574-r0fjpj4bsvfmfmfaeci43qrp5ind9olc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
