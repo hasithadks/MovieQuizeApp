@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_quize_app/constants.dart';
+import 'package:movie_quize_app/screens/quiz_levels_page.dart';
 import 'package:movie_quize_app/widgets/custom_btn.dart';
 import 'package:movie_quize_app/widgets/custom_btn_homepage.dart';
 
@@ -49,10 +50,15 @@ class _HomePageState extends State<HomePage> {
                         width: 4.0),
 
                       ),
-
-
                       color: Colors.black,
                       onPressed: () async{
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Levels()
+                          ),
+
+                        );
 
                       },
                       child: Center(
