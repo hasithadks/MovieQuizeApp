@@ -25,4 +25,10 @@ class Constants {
       fontWeight: FontWeight.w600,
       color: Colors.black
   );
+
+  static const regularWhiteText = TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.w600,
+      color: Colors.white
+  );
 }

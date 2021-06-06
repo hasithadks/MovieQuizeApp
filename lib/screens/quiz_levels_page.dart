@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
+import 'package:movie_quize_app/screens/question_page.dart';
 
 import '../constants.dart';
 
@@ -9,6 +10,20 @@ class Levels extends StatefulWidget {
 }
 
 class _LevelsState extends State<Levels> {
+
+  //Levels score
+   static const level_1 = 2;
+   static const level_2 = 1;
+   static const level_3 = 0;
+   static const level_4 = 3;
+   static const level_5 = 1;
+   static const level_6 = 2;
+   static const level_7 = 3;
+   static const level_8 = 3;
+   static const level_9 = 3;
+   static const level_10 = 2;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +72,13 @@ class _LevelsState extends State<Levels> {
                                 ),
                                 color: Colors.black,
                                 onPressed: () async{
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => QuestionPage()
+                                    ),
 
+                                  );
                                 },
                                 child: Center(
                                   child: Text("01",
@@ -75,8 +96,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_1 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_1 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -88,8 +109,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_1 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_1 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -101,8 +122,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_1 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_1 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -152,8 +173,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_2 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_2 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -165,8 +186,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_2 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_2 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -178,8 +199,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_2 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_2 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -229,8 +250,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_3 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_3 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -242,8 +263,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_3 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_3 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -255,8 +276,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_3 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_3 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -306,8 +327,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_4 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_4 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -319,8 +340,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_4 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_4 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -332,8 +353,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_4 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_4 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -383,8 +404,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_5 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_5 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -396,8 +417,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_5 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_5 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -409,8 +430,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_5 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_5 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -460,8 +481,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_6 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_6 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -473,8 +494,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_6 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_6 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -486,8 +507,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_6 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_6 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -538,8 +559,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_7 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_7 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -551,8 +572,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_7 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_7 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -564,8 +585,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_7 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_7 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -616,8 +637,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_8 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_8 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -629,8 +650,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_8 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_8 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -642,8 +663,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_8 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_8 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -694,8 +715,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_9 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_9 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -707,8 +728,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_9 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_9 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -720,8 +741,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_9 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_9 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -772,8 +793,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_10 > 0 ? Icons.star : Icons.star_border,
+                                          color:level_10 > 0 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -785,8 +806,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_10 > 1 ? Icons.star : Icons.star_border,
+                                          color:level_10 > 1 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
@@ -798,8 +819,8 @@ class _LevelsState extends State<Levels> {
                                             horizontal: 2.0,
                                             vertical: 10.0
                                         ),
-                                        child: Icon(Icons.star_border,
-                                          color: Colors.white,
+                                        child: Icon(level_10 > 2 ? Icons.star : Icons.star_border,
+                                          color:level_10 > 2 ? Colors.amber : Colors.white,
                                           size: 35.0,),
                                       )
                                     ],
