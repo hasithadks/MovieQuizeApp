@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_quize_app/constants.dart';
+import 'package:movie_quize_app/screens/add_questions.dart';
 import 'package:movie_quize_app/screens/home_page.dart';
 import 'package:movie_quize_app/screens/login_page.dart';
 
@@ -42,9 +43,15 @@ class LandingPage extends StatelessWidget {
                 if(_user == null){
 
                   return LoginPage();
+
+                }else if(_user.email == "admin@gmail.com"){
+
+                  return AddQuestions();
+
                 } else {
 
                   return HomePage();
+
                 }
 
               }
