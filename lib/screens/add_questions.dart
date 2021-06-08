@@ -2,6 +2,9 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'login_page.dart';
 
 class AddQuestions extends StatefulWidget {
   AddQuestions({this.app});
@@ -20,6 +23,7 @@ class _AddQuestionsState extends State<AddQuestions> {
   final a3 = "3rd Answer";
   final a4 = "4th Answer";
   final cAnswer = "Correct Answer";
+  final level = "Level";
 
   final questionController = TextEditingController();
   final answerController1 = TextEditingController();
@@ -27,6 +31,7 @@ class _AddQuestionsState extends State<AddQuestions> {
   final answerController3 = TextEditingController();
   final answerController4 = TextEditingController();
   final correctAnswerController = TextEditingController();
+  final levelController = TextEditingController();
 
   DatabaseReference questions;
 
@@ -43,6 +48,13 @@ class _AddQuestionsState extends State<AddQuestions> {
 
     // return Container();
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async{
+          await FirebaseAuth.instance.signOut();
+        },
+        child: const Icon(Icons.logout),
+        backgroundColor: Colors.black,
+      ),
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text('Question Bank'),
@@ -69,6 +81,21 @@ class _AddQuestionsState extends State<AddQuestions> {
                       controller: questionController,
                       decoration: InputDecoration(
                           hintText: "Please enter the question here"),
+                      textAlign: TextAlign.left,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(level,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: Colors.white70,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                    TextField(
+                      controller: levelController,
+                      decoration: InputDecoration(
+                          hintText: "Please enter the level of quiz here (1-10)"),
                       textAlign: TextAlign.left,
                     ),
                     Padding(
@@ -144,25 +171,31 @@ class _AddQuestionsState extends State<AddQuestions> {
                       controller: correctAnswerController,
                       decoration: InputDecoration(
                           hintText:
-                              "Please enter the correct answer as same as above"),
+                              "Please enter the correct answer number (1-4)"),
                       textAlign: TextAlign.left,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20.0),
                       child: FlatButton(
                           color: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            side: BorderSide(color: Colors.black, width: 2.0)
+                          ),
                           onPressed: () {
                             ref.child("Questions").push()
                                 // .child(mName)
                                 .set({
                               'Question': questionController.text,
+                              'Level': levelController.text,
                               'Option1': answerController1.text,
                               'Option2': answerController2.text,
                               'Option3': answerController3.text,
                               'Option4': answerController4.text,
-                              'Answer': correctAnswerController.text
+                              'Answer': correctAnswerController.text,
                             }).asStream();
                             questionController.clear();
+                            levelController.clear();
                             answerController1.clear();
                             answerController2.clear();
                             answerController3.clear();
