@@ -48,17 +48,19 @@ class _AddQuestionsState extends State<AddQuestions> {
 
     // return Container();
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async{
-          await FirebaseAuth.instance.signOut();
-        },
-        child: const Icon(Icons.logout),
-        backgroundColor: Colors.black,
-      ),
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text('Question Bank'),
         backgroundColor: Colors.blueGrey.shade900,
+        actions:[
+          IconButton(
+            icon: Icon(Icons.logout),
+            tooltip: 'Setting Icon',
+            onPressed: () async{
+              await FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
