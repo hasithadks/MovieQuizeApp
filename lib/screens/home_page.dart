@@ -5,6 +5,8 @@ import 'package:movie_quize_app/screens/quiz_levels_page.dart';
 import 'package:movie_quize_app/widgets/custom_btn.dart';
 import 'package:movie_quize_app/widgets/custom_btn_homepage.dart';
 
+import 'q_and_a.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -194,10 +196,68 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
+
                     ),
 
                   ),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                      vertical: 15.0,
+                    ),
+                    child: MaterialButton(
+                      minWidth: 300.0,
+                      height: 65,
+                      color: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius:BorderRadius.circular(8.0),
+                          side: BorderSide(color: Colors.greenAccent,
+                              width: 4.0)
+                      ),
+                      onPressed: () async{
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => QandA()
+                          ),
+                        );
+                      },
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0,
+                                      vertical: 10.0
+                                  ),
+                                  child: Icon(Icons.question_answer,
+                                    color: Colors.white,
+                                    size: 35.0,),
+                                )
+                              ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 40.0,
+                                      vertical: 10.0
+                                  ),
+                                  child: Text("Q & A ",
+                                      style: new TextStyle(fontSize: 18.0, color: Colors.white)),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
 
+
+                    ),
+
+                  ),
                 ],
               ),
               Container(

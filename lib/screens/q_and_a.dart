@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:movie_quize_app/theme/colors.dart';
 import 'dart:ui';
 import 'Model.dart';
 import '../constants.dart';
@@ -20,8 +19,10 @@ class _QandAState extends State<QandA> {
   void initState() {
     super.initState();
     fb.once().then((DataSnapshot snap) {
+
       var data = snap.value;
       list.clear();
+
       data.forEach((key, value) {
         Model model = new Model(
           Answer: value['Answer'],
@@ -57,49 +58,64 @@ class _QandAState extends State<QandA> {
 
                 children:[
                   Container(
+
                     padding: EdgeInsets.only(
-                      top: 40.0,
+                      top: 20.0,
                     ),
+
                     child:Text("Questions and Answers for Knowledge",
                       textAlign: TextAlign.center,
-                      style: Constants.boldHeadingWhite,
+                      style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
                     ) ,
                   ),
 
                   Column(
                     children: [
                       Container(
+
                         decoration: BoxDecoration(
                           color: Colors.black,
                           borderRadius: BorderRadius.circular(5.0),
                           border: Border.all(
-                            color: Colors.white,
-                            width: 4.0,
+                            color: Colors.blueGrey,
+                            width: 3.0,
                           ),
                         ),
+
                         margin: EdgeInsets.symmetric(
                           horizontal: 24.0,
                           vertical: 15.0,
-
                         ),
+
                         child:Column(
                           children: [
+
                             FutureBuilder(
                               //future: provider_2.Question,
                               builder: (context,snapshot) {
                                 return Scrollbar(
+
                                   child: Container(
-                                    height: 570,
+                                    height: 580,
+
                                     child: ListView.separated(
                                         separatorBuilder: (BuildContext context,
                                             int index) =>
+
                                         const Divider(
-                                          color: Colors.white,
+                                          color: Colors.grey,
+                                          thickness: 5,
                                         ),
+
                                         shrinkWrap: true,
                                         itemCount: list.length,
                                         itemBuilder: (context, index) {
+
                                           var answer;
+
                                           if(list[index].Answer == '1') {
                                              answer = list[index].Option1;
                                           }else if(list[index].Answer == '2'){
@@ -109,22 +125,33 @@ class _QandAState extends State<QandA> {
                                           }else if(list[index].Answer == '4'){
                                             answer = list[index].Option4;
                                           }
+                                          //print(answer);
                                          return GestureDetector(
+
                                              child: Column(
                                                   children: [
+
                                                     Text(
                                                       list[index].Question,
-                                                      textAlign: TextAlign
-                                                          .center,
-                                                      style: Constants
-                                                          .regularWhiteText,
+                                                      textAlign: TextAlign.center,
+                                                      style: Constants.regularWhiteText,
                                                     ),
 
-                                                    Text(answer,
-                                                      textAlign: TextAlign
-                                                          .center,
-                                                      style: Constants
-                                                          .regularWhiteText,
+                                                    Container(
+                                                      width: 350.0,
+                                                      height: 50.0,
+                                                      margin: const EdgeInsets.all(15.0),
+                                                      padding: const EdgeInsets.all(3.0),
+                                                      decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(5.0),
+                                                          border: Border.all(
+                                                              color: Colors.greenAccent,
+                                                          width: 2.0)
+                                                      ),
+                                                      child: Text(answer,
+                                                        textAlign: TextAlign.center,
+                                                        style: Constants.regularWhiteText,
+                                                      ),
                                                     ),
                                                   ],
                                                 )
