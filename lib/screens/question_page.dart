@@ -3,7 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:movie_quize_app/theme/colors.dart';
 import 'dart:ui';
 
-import 'Model.dart';
+import 'QandA_Model.dart';
 import '../constants.dart';
 
 class QuestionPage extends StatefulWidget {

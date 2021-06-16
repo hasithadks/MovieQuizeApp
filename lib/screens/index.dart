@@ -12,7 +12,7 @@ class IndexPage extends StatefulWidget{
 class _IndexPageState extends State<IndexPage> {
 
 
-  final fb = FirebaseDatabase.instance.reference().child("Questions");
+  final fb = FirebaseDatabase.instance.reference().child("LeaderBoard");
   List <Model> list = List();
 
   void initState() {
@@ -22,15 +22,14 @@ class _IndexPageState extends State<IndexPage> {
       list.clear();
       data.forEach((key, value) {
         Model model = new Model(
-          Answer: value['Answer'],
-          Option1: value['Option1'],
-          Option2: value['Option2'],
-          Option3: value['Option3'],
-          Option4: value['Option4'],
+          PlayerName: value['PlayerName'],
+          Place: value['Place'],
+          Score: value['Score'],
           key: key,
         );
-        print(value['Answer']);
-        print("ss");
+        print(value['PlayerName']);
+        print(value['Place']);
+        print(value['Score']);
         list.add(model);
       });
       setState(() {
@@ -41,20 +40,43 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
-    Widget UI(String answer, String option1, String key) {
-      return new GestureDetector(
-        onLongPress: () {},
-        onTap: () {},
+    Widget UI(String playerName, String place, String score) {
+      return new Container(
+        margin: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(1),
+        decoration: BoxDecoration(
+            color: Colors.grey,
+            border: Border.all(color: Colors.grey)
+        ),
         child: Card(
+
           child: Column(
             children: <Widget>[
               Text(
-                answer,
+                playerName,
                 style: TextStyle(
-                    color: Colors.red,
-                    fontStyle: FontStyle.italic,
+                    color: Colors.black54,
+
                     fontSize: 20,
                     fontWeight: FontWeight.bold
+                ),
+              ),
+              Text(
+                place,
+                style: TextStyle(
+                  color: Colors.black38,
+
+                  fontSize: 20,
+
+                ),
+              ),
+              Text(
+                score,
+                style: TextStyle(
+                  color: Colors.black26,
+
+                  fontSize: 20,
+
                 ),
               )
             ],
@@ -65,7 +87,7 @@ class _IndexPageState extends State<IndexPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home page"),
+        title: Text("Leader Board"),
         backgroundColor: Colors.purple,
       ),
       body: new Container(
@@ -73,7 +95,7 @@ class _IndexPageState extends State<IndexPage> {
             itemCount: list.length,
             itemBuilder: (_, index) {
               return UI(
-                  list[index].Answer, list[index].Option1, list[index].Option2);
+                  list[index].PlayerName, list[index].Place, list[index].Score);
             }
         ),
       ),

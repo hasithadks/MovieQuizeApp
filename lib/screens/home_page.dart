@@ -7,6 +7,7 @@ import 'package:movie_quize_app/widgets/custom_btn_homepage.dart';
 
 import 'q_and_a.dart';
 
+import 'index.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -112,7 +113,13 @@ class _HomePageState extends State<HomePage> {
                               width: 4.0)
                       ),
                       onPressed: () async{
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => IndexPage()
+                          ),
 
+                        );
                       },
                       child: Center(
                         child: Row(
