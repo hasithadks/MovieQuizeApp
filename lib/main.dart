@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_quize_app/screens/landing_page.dart';
+import 'package:movie_quize_app/screens/login_page.dart';
 
 import 'screens/home_page.dart';
 import 'screens/q_and_a.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         )
       ),
-      home: HomePage(),
+      home: LandingPage(),
       debugShowCheckedModeBanner: false,
     );
   }

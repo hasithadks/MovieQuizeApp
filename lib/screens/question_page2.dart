@@ -4,27 +4,27 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 import '../constants.dart';
 
-class QuestionPage extends StatefulWidget {
-  QuestionPage({this.app});
+class QuestionPage2 extends StatefulWidget {
+  QuestionPage2({this.app});
   final FirebaseApp app;
   @override
-  _QuestionPageState createState() => _QuestionPageState();
+  _QuestionPage2State createState() => _QuestionPage2State();
 }
 
 
-class _QuestionPageState extends State<QuestionPage> {
+class _QuestionPage2State extends State<QuestionPage2> {
 
   final referenceDatabase = FirebaseDatabase.instance;
 
 
 
-  String Question = "Which 2020 film starring Robert Downey Jr tells the story of a physician who can talk to animals?";
-  String Answer = "2";
-  String Option1 = "Iron Man";
-  String Option2 = "Dolittle";
-  String Option3 = "The Avengers";
-  String Option4 = "Sherlock Holmes";
-  String Level = "1";
+  String Question = "Which actor portrays John Wick in the film series of the same name? ";
+  String Answer = "3";
+  String Option1 = "Will Smith";
+  String Option2 = "Jason Statham";
+  String Option3 = "Keanu Reeves";
+  String Option4 = "Bruce Willis";
+  String Level = "2";
   bool correct = false;
 
   DatabaseReference questions;
@@ -105,7 +105,7 @@ class _QuestionPageState extends State<QuestionPage> {
                     padding: EdgeInsets.only(
                       top: 40.0,
                     ),
-                    child:Text("Level 01 Question 01",
+                    child:Text("Level 02 Question 01",
                       textAlign: TextAlign.center,
                       style: Constants.boldHeadingWhite,
                     ) ,
@@ -180,7 +180,7 @@ class _QuestionPageState extends State<QuestionPage> {
                           color: Colors.black,
                           shape: RoundedRectangleBorder(
                               borderRadius:BorderRadius.circular(8.0),
-                              side: BorderSide(color:Colors.green,
+                              side: BorderSide(color: Colors.white,
                                   width: 4.0)
                           ),
                           onPressed: () async{
@@ -203,7 +203,7 @@ class _QuestionPageState extends State<QuestionPage> {
                           color: Colors.black,
                           shape: RoundedRectangleBorder(
                               borderRadius:BorderRadius.circular(8.0),
-                              side: BorderSide(color: Colors.white,
+                              side: BorderSide(color: Colors.green,
                                   width: 4.0)
                           ),
                           onPressed: () async{

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:movie_quize_app/screens/question_page.dart';
-
+import 'package:movie_quize_app/screens/question_page2.dart';
 import '../constants.dart';
 
 class Levels extends StatefulWidget {
@@ -12,16 +12,16 @@ class Levels extends StatefulWidget {
 class _LevelsState extends State<Levels> {
 
   //Levels score
-   static const level_1 = 2;
+   static const level_1 = 3;
    static const level_2 = 1;
-   static const level_3 = 0;
-   static const level_4 = 3;
-   static const level_5 = 1;
-   static const level_6 = 2;
-   static const level_7 = 3;
-   static const level_8 = 3;
-   static const level_9 = 3;
-   static const level_10 = 2;
+   static const level_3 = 3;
+   static const level_4 = 2;
+   static const level_5 = 2;
+   static const level_6 = 3;
+   static const level_7 = 1;
+   static const level_8 = 0;
+   static const level_9 = 0;
+   static const level_10 = 0;
 
 
   @override
@@ -155,7 +155,13 @@ class _LevelsState extends State<Levels> {
                                 ),
                                 color: Colors.black,
                                 onPressed: () async{
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => QuestionPage2()
+                                    ),
 
+                                  );
                                 },
                                 child: Center(
                                     child: Text("02",
